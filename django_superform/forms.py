@@ -79,7 +79,7 @@ from functools import reduce
 from django import forms
 from django.forms.forms import DeclarativeFieldsMetaclass, ErrorDict, ErrorList
 from django.forms.models import ModelFormMetaclass
-from django.utils import six
+import six
 import copy
 
 from .fields import CompositeField
@@ -171,7 +171,10 @@ class SuperFormMixin(object):
     """
 
     def __init__(self, *args, **kwargs):
-        super(SuperFormMixin, self).__init__(*args, **kwargs)
+        try:
+            super(SuperFormMixin, self).__init__(*args, **kwargs)
+        except Exception as e:
+            print(e)
         self._init_composite_fields()
 
     def __getitem__(self, name):
