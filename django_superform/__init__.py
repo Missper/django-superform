@@ -23,7 +23,7 @@ from .forms import SuperForm, SuperModelForm
 from .widgets import FormWidget, FormSetWidget
 
 
-__version__ = "0.5.0.dj3.2"
+__version__ = "0.5.0"
 
 
 __all__ = (
